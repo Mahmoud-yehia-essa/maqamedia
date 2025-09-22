@@ -3,7 +3,7 @@
 
 <!--===== HEADER AREA =====-->
 <div class="about-header-area" style="background-color: #ED7032" >
-        <img src="{{ asset('frontend/assets/img/elements/elements1.png') }}" alt="" class="elements1 aniamtion-key-1">
+        {{-- <img src="{{ asset('frontend/assets/img/elements/elements1.png') }}" alt="" class="elements1 aniamtion-key-1"> --}}
 
     <div class="container">
         <div class="row">
