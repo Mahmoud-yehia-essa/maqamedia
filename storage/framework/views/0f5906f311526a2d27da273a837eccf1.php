@@ -62,8 +62,8 @@
     .service-main-img {
         display: block;
         margin: 20px auto;
-        max-width: 100%;
         width: 100%;
+        max-width: 700px; /* الحد الأقصى للسطح المكتب */
         height: auto !important;
         border-radius: 10px;
         object-fit: contain;
@@ -77,8 +77,8 @@
 
     /* الفيديو داخل المحتوى */
     .content-html iframe {
-        width: 100% !important;
-        max-width: 100%;
+        width: 100%;
+        max-width: 800px; /* الحد الأقصى للسطح المكتب */
         height: auto !important;
         aspect-ratio: 16/9;
         display: block;
@@ -138,6 +138,13 @@
         .content-html p {
             font-size: 16px !important;
         }
+
+        /* على الموبايل نسمح للصور والفيديو بالملء الكامل */
+        .content-html img,
+        .service-main-img,
+        .content-html iframe {
+            max-width: 100%;
+        }
     }
 </style>
 
@@ -159,6 +166,7 @@
                 iframe.setAttribute("allowfullscreen", "true");
                 iframe.setAttribute("frameborder", "0");
                 iframe.style.width = "100%";
+                iframe.style.maxWidth = "800px"; // الحد الأقصى للسطح المكتب
                 iframe.style.aspectRatio = "16/9";
                 iframe.style.borderRadius = "12px";
                 iframe.style.boxShadow = "0px 5px 25px rgba(0,0,0,0.15)";

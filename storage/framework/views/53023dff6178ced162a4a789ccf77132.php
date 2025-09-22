@@ -1,8 +1,6 @@
 <?php $__env->startSection('main'); ?>
 
-<div class="about-header-area" style="background-color: #ED7032" >
-    
-    
+<div class="about-header-area" style="background-color: #ED7032">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 m-auto">
@@ -26,20 +24,18 @@
                     <?php if($companywork->photo): ?>
                     <div class="text-center mb-5">
                         <img src="<?php echo e(asset($companywork->photo)); ?>" alt="<?php echo e($companywork->title); ?>"
-                             class="img-fluid rounded service-main-img"
-                             style="max-height: 300px;">
+                             class="img-fluid rounded service-main-img">
                     </div>
                     <?php endif; ?>
 
                     
-                    <h2 class="text-center mb-4" style="font-family: 'Cairo', sans-serif; font-weight: bold; color:#ED7032; font-size: 42px;">
+                    <h2 class="text-center mb-4" style="font-family: 'Cairo', sans-serif; font-weight: bold; color:#ED7032;">
                         <?php echo e($companywork->title); ?>
 
                     </h2>
 
-
                     
-                    <p  dir="rtl" class="mb-5" style="font-size: 18px; font-weight: bold;   text-align: right; color:#555; line-height: 1.8;">
+                    <p dir="rtl" class="mb-5" style="font-size: 18px; font-weight: bold; text-align: right; color:#555; line-height: 1.8;">
                         <?php echo e($companywork->des); ?>
 
                     </p>
@@ -53,7 +49,7 @@
             </div>
             <?php else: ?>
             <div class="col-lg-8 text-center">
-                <p>لا توجد تفاصيل لهذه الخدمة حالياً</p>
+                <p>لا توجد تفاصيل لهذا العمل حالياً</p>
             </div>
             <?php endif; ?>
         </div>
@@ -62,15 +58,14 @@
 
 
 <style>
-    /* الصور داخل المحتوى والخدمة */
+    /* الصور داخل المحتوى والعمل */
     .content-html img,
     .service-main-img {
         display: block;
         margin: 20px auto;
-        max-width: 70%;
-        width: auto;
+        width: 100%;
+        max-width: 700px; /* الحد الأقصى للسطح المكتب */
         height: auto !important;
-        max-height: 300px;
         border-radius: 10px;
         object-fit: contain;
         cursor: pointer;
@@ -83,9 +78,10 @@
 
     /* الفيديو داخل المحتوى */
     .content-html iframe {
-        width: 60% !important;
-        max-width: 100%;
-        height: 500px !important;
+        width: 100%;
+        max-width: 800px; /* الحد الأقصى للسطح المكتب */
+        height: auto !important;
+        aspect-ratio: 16/9;
         display: block;
         margin: 30px auto;
         border: none;
@@ -106,7 +102,6 @@
         overflow: auto;
         background: rgba(0, 0, 0, 0.85);
     }
-    /* الصورة داخل البوب اب */
     .image-popup-content {
         margin: auto;
         display: block;
@@ -115,7 +110,6 @@
         border-radius: 12px;
         box-shadow: 0px 5px 25px rgba(0,0,0,0.3);
     }
-    /* زر الإغلاق */
     .image-popup-close {
         position: absolute;
         top: 20px;
@@ -128,6 +122,27 @@
     }
     .image-popup-close:hover {
         color: #ED7032;
+    }
+
+    /* Media Queries للأجهزة الصغيرة */
+    @media (max-width: 768px) {
+        .service-card {
+            padding: 20px !important;
+        }
+
+        h2 {
+            font-size: 28px !important;
+        }
+
+        .content-html p {
+            font-size: 16px !important;
+        }
+
+        .content-html img,
+        .service-main-img,
+        .content-html iframe {
+            max-width: 100%;
+        }
     }
 </style>
 
@@ -148,8 +163,9 @@
                 iframe.setAttribute("src", videoUrl.replace("watch?v=", "embed/"));
                 iframe.setAttribute("allowfullscreen", "true");
                 iframe.setAttribute("frameborder", "0");
-                iframe.style.width = "60%";
-                iframe.style.height = "500px";
+                iframe.style.width = "100%";
+                iframe.style.maxWidth = "800px";
+                iframe.style.aspectRatio = "16/9";
                 iframe.style.borderRadius = "12px";
                 iframe.style.boxShadow = "0px 5px 25px rgba(0,0,0,0.15)";
                 iframe.style.display = "block";
