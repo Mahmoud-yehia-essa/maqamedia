@@ -1,9 +1,7 @@
 @extends('frontend.master_dashboard')
 @section('main')
 
-<div class="about-header-area" style="background-color: #ED7032" >
-    {{-- <img src="{{ asset('frontend/assets/img/elements/elements1.png') }}" alt="" class="elements1 aniamtion-key-1"> --}}
-    {{-- <img src="{{ asset('frontend/assets/img/elements/star2.png') }}" alt="" class="star2 keyframe5"> --}}
+<div class="about-header-area" style="background-color: #ED7032">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 m-auto">
@@ -27,19 +25,17 @@
                     @if($news->photo)
                     <div class="text-center mb-5">
                         <img src="{{ asset($news->photo) }}" alt="{{ $news->title }}"
-                             class="img-fluid rounded service-main-img"
-                             style="max-height: 300px;">
+                             class="img-fluid rounded service-main-img">
                     </div>
                     @endif
 
                     {{-- Service Title --}}
-                    <h2 class="text-center mb-4" style="font-family: 'Cairo', sans-serif; font-weight: bold; color:#ED7032; font-size: 42px;">
+                    <h2 class="text-center mb-4" style="font-family: 'Cairo', sans-serif; font-weight: bold; color:#ED7032;">
                         {{ $news->title }}
                     </h2>
 
-
                     {{-- Short Description --}}
-                    <p class=" mb-5" style="font-size: 18px; color:#555; line-height: 1.8; text-align: right;">
+                    <p class="mb-5" style="font-size: 18px; color:#555; line-height: 1.8; text-align: right;">
                         <strong>{{ $news->des }}</strong>
                     </p>
 
@@ -65,10 +61,9 @@
     .service-main-img {
         display: block;
         margin: 20px auto;
-        max-width: 70%;
-        width: auto;
+        max-width: 100%;
+        width: 100%;
         height: auto !important;
-        max-height: 300px;
         border-radius: 10px;
         object-fit: contain;
         cursor: pointer;
@@ -81,9 +76,10 @@
 
     /* الفيديو داخل المحتوى */
     .content-html iframe {
-        width: 60% !important;
+        width: 100% !important;
         max-width: 100%;
-        height: 500px !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
         display: block;
         margin: 30px auto;
         border: none;
@@ -127,6 +123,21 @@
     .image-popup-close:hover {
         color: #ED7032;
     }
+
+    /* Media Queries للأجهزة الصغيرة */
+    @media (max-width: 768px) {
+        .service-card {
+            padding: 20px !important;
+        }
+
+        h2 {
+            font-size: 28px !important;
+        }
+
+        .content-html p {
+            font-size: 16px !important;
+        }
+    }
 </style>
 
 {{-- HTML Popup --}}
@@ -146,8 +157,8 @@
                 iframe.setAttribute("src", videoUrl.replace("watch?v=", "embed/"));
                 iframe.setAttribute("allowfullscreen", "true");
                 iframe.setAttribute("frameborder", "0");
-                iframe.style.width = "60%";
-                iframe.style.height = "500px";
+                iframe.style.width = "100%";
+                iframe.style.aspectRatio = "16/9";
                 iframe.style.borderRadius = "12px";
                 iframe.style.boxShadow = "0px 5px 25px rgba(0,0,0,0.15)";
                 iframe.style.display = "block";

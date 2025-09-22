@@ -492,7 +492,7 @@ style="font-family: 'Cairo', sans-serif; font-weight: 700;"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-    <a href="https://wa.me/1234567890" class="whatsapp-icon" target="_blank">
+    <a href="https://wa.me/+96550020551" class="whatsapp-icon" target="_blank">
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
         alt="WhatsApp"
