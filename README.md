@@ -1,64 +1,63 @@
- <p align="center">
-  <img src="https://talebai.net/logo_chramba.png" width="300" alt="Chraimbanet Logo">
-</p>
+<!-- <p align="center">
+  <img src="https://talebai.net/logo_chramba.png" width="300" alt="Maqam Media Logo">
+</p> -->
 
-# **Chraimbanet - Admin Content Management System**
+# **Maqam Media - Marketing CMS**
 
 ## **Overview**
 
-Chraimbanet is a powerful **Admin Content Management System (CMS)** designed to manage and oversee a competitive app that facilitates **team-based competitions**. The system allows administrators to efficiently control various aspects of the app, including **user management, question categorization, team organization, results tracking, and notifications**.
+Maqam Media is a powerful **Admin Content Management System (CMS)** designed to manage and oversee marketing operations efficiently. The system allows administrators to control various aspects, including **user management, content organization, campaigns, analytics, and notifications**.
 
-This CMS serves as the **backbone** of an interactive platform where teams compete by answering a vast collection of questions across multiple categories. The system ensures a **smooth, structured, and fair competition environment** by providing real-time monitoring and management tools for admins.
+This CMS serves as the **backbone** of a marketing platform, enabling teams to manage content and campaigns in a structured and organized way. The system ensures a **smooth and efficient workflow** by providing real-time monitoring and management tools for admins.
 
 ## **Key Features**
 
 ### **1. User & Team Management**
 
--   Register, update, and manage users participating in competitions.
--   Create and organize teams for competitive play.
--   Assign roles and permissions to team members.
+-   Register, update, and manage users and team members.
+-   Assign roles and permissions for content and campaign management.
+-   Organize teams for collaborative marketing efforts.
 
-### **2. Question & Category Management**
+### **2. Content & Campaign Management**
 
--   Maintain a **large database of questions** spanning different topics and difficulty levels.
--   Categorize questions into multiple subjects for structured gameplay.
--   Ability to add, edit, or remove questions dynamically.
+-   Maintain a **centralized database of marketing content**.
+-   Organize content by categories and campaigns.
+-   Add, edit, or remove content and campaigns dynamically.
 
-### **3. Competition Control & Results Tracking**
+### **3. Campaign Analytics & Performance Tracking**
 
--   Manage live competitions between teams.
--   Track scores and performance statistics in real time.
--   Generate leaderboards and rankings based on team performance.
--   Archive past competitions for future reference.
+-   Track campaign performance in real time.
+-   Generate reports on reach, engagement, and conversion metrics.
+-   Archive past campaigns for reference and analysis.
 
 ### **4. Notifications & Announcements**
 
--   Send **real-time notifications** to users and teams.
--   Publish important updates regarding upcoming competitions.
+-   Send **real-time notifications** to team members.
+-   Publish important updates regarding campaigns and deadlines.
 -   Manage system alerts and reminders.
 
-### **5. Performance & Analytics**
+### **5. Performance & Insights**
 
--   Monitor **individual and team performance trends**.
--   Generate reports based on competition results.
--   Identify strengths and weaknesses in various categories.
+-   Monitor **team and individual performance trends**.
+-   Identify high-performing campaigns and areas for improvement.
+-   Generate actionable insights to optimize marketing strategies.
 
 ### **6. Security & Access Control**
 
 -   Secure login system for admins.
 -   Role-based access to manage different functionalities.
--   Data protection to ensure fairness and prevent tampering.
+-   Data protection to ensure content integrity.
 
-## **Why Choose Chraimbanet?**
+## **Why Choose Maqam Media CMS?**
 
--   **Scalable & Reliable:** Handles a large number of users and questions.
--   **User-Friendly Admin Panel:** Simple and intuitive interface for managing competitions.
--   **Customizable:** Easily add new categories, questions, and features as needed.
--   **Real-Time Functionality:** Instant updates, notifications, and leaderboard tracking.
+-   **Scalable & Reliable:** Handles multiple users, campaigns, and content.
+-   **User-Friendly Admin Panel:** Simple and intuitive interface for marketing management.
+-   **Customizable:** Easily add new categories, campaigns, and features as needed.
+-   **Real-Time Functionality:** Instant updates, notifications, and campaign tracking.
 
 ## **Technology Stack**
 
-Chraimbanet is built using a modern tech stack to ensure performance and scalability:
+Maqam Media CMS is built using a modern tech stack to ensure performance and scalability:
 
 -   **Backend:** Laravel (PHP Framework)
 -   **Frontend:** Blade Templates / Vue.js (if applicable)
@@ -68,7 +67,7 @@ Chraimbanet is built using a modern tech stack to ensure performance and scalabi
 
 ## **Installation & Setup**
 
-To run the Chraimbanet Admin CMS locally, follow these steps:
+To run the Maqam Media CMS locally, follow these steps:
 
 1. Clone the repository:
     ```sh
