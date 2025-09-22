@@ -382,15 +382,7 @@
 
 
 
-        <li>
-            <a href="<?php echo e(route('add.ads')); ?>">
-                <div class="parent-icon">
-                    <ion-icon name="megaphone-outline"></ion-icon>
-
-                </div>
-                <div class="menu-title">ادارة الإعلانات</div>
-            </a>
-        </li>
+        
 
 
         

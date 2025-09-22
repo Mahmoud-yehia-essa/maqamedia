@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Service;
-use App\Models\UserService;
+use App\Models\userService;
 use Illuminate\Http\Request;
 use App\Models\ServiceComment;
 use App\Models\UserServicePayment;
@@ -138,7 +138,7 @@ public function addUserMessagesAjax(Request $request)
     {
         // $values = UserService::with(['user', 'service', 'payments'])->get();
 
-        $values = UserService::latest('id')->with(['user', 'service', 'payments'])->get();
+        $values = userService::latest('id')->with(['user', 'service', 'payments'])->get();
 
         return view('admin.user_service.all_user_service', compact('values'));
     }
@@ -164,7 +164,7 @@ public function addUserMessagesAjax(Request $request)
 
         ]);
 
-        $userService = new UserService();
+        $userService = new userService();
         $userService->user_id = $request->user_id;
         $userService->service_id = $request->service_id;
         $userService->status = $request->status;
@@ -200,7 +200,7 @@ public function addUserMessagesAjax(Request $request)
     // صفحة تعديل خدمة
     public function editUserService($id)
     {
-        $value = UserService::with('payments')->findOrFail($id);
+        $value = userService::with('payments')->findOrFail($id);
         $users = User::all();
         $services = Service::all();
         return view('admin.user_service.edit_user_service', compact('value','users','services'));
@@ -218,7 +218,7 @@ public function addUserMessagesAjax(Request $request)
             'total_price'=>'required|numeric|min:0',
         ]);
 
-        $userService = UserService::findOrFail($request->id);
+        $userService = userService::findOrFail($request->id);
         $userService->user_id = $request->user_id;
         $userService->service_id = $request->service_id;
         $userService->status = $request->status;
@@ -257,14 +257,14 @@ public function addUserMessagesAjax(Request $request)
     // حذف خدمة
     public function deleteUserService($id)
     {
-        $userService = UserService::findOrFail($id);
+        $userService = userService::findOrFail($id);
         $userService->payments()->delete();
         $userService->delete();
         return redirect()->back()->with('success', 'تم حذف الخدمة بنجاح');
     }
 
     // إنشاء الدفعات تلقائياً
-    private function createPayments(UserService $userService)
+    private function createPayments(userService $userService)
     {
         $total = $userService->total_price;
         $num = $userService->num_payments;
