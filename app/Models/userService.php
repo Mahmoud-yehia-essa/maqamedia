@@ -13,7 +13,7 @@ class userService extends Model
             protected $guarded = [];
 
 
-             // علاقة مع المستخدم
+             // علاقة مع المستخدم ddd
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
