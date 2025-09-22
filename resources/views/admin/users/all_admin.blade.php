@@ -36,7 +36,6 @@
 <th>الرقم</th>
 <th>الإسم</th>
 <th>رقم الهاتف</th>
-<th>الدولة</th>
 
 <th>تاريخ التسجيل</th>
 
@@ -50,9 +49,7 @@
 <td> {{ $key+1 }} </td>
 <td>{{ $item->fname }}</td>
 <td>{{ $item->phone }}</td>
-<td style="font-size: 32px; " >
-    <p >{{ $item->country_flag }}</p>
-</td>
+
 
 <td>{{ $item->created_at ? $item->created_at->diffForHumans() : 'لم يتم التحديد' }}</td>
 

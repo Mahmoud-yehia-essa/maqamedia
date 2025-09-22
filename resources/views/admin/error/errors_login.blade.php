@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png" />
+	{{-- <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png" /> --}}
 <!-- loader-->
 <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet" />
 <script src="{{ asset('backend/assets/js/pace.min.js') }}"></script>
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
 
-<title>لوحة تحكم - تطبيق چريمبة</title>
+<title>موقع المقام ميديا</title>
 <style>
 
 		body
@@ -76,7 +76,7 @@
                     <li class="list-inline-item"><a href="javascript:;"><i class='bx bxl-twitter me-1'></i>X</a>
 					</li>
 				</ul>
-                <p class="mb-0">CHRAIMBA © 2025 All right reserved</p>
+                <p class="mb-0">Almaqam © 2025 All right reserved</p>
 			</div>
 		</div>
 	</div>

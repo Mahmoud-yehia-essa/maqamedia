@@ -12,6 +12,8 @@ use Intervention\Image\Drivers\Gd\Driver; // Use GD driver (or use Intervention\
 
 class SponsorController extends Controller
 {
+
+
         public function addSponsorHomeCate(){
 
             $getSponsorHome = Sponsor::findOrFail(1);

@@ -12,11 +12,11 @@
     function drawChart() {
     var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
-        ['الفئات', {{$category->count()}}],
+        ['عدد الخدمات', {{$service->count()}}],
 
-        ['المستخدمين المسجلين', {{$users->count()}}],
-        ['الأسئلة', {{$questions->count()}}],
-        ['الألعاب', {{$games->count()}}],
+        ['عدد عملاء الشركة', {{$users->count()}}],
+        ['عدد الأعمال', {{$companywork->count()}}],
+        ['عدد الأخبار', {{$news->count()}}],
     ]);
 
     var options = {
@@ -49,7 +49,7 @@
                 <div class="progress-bar bg-white" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="d-flex align-items-center text-white">
-                <p class="mb-0">عدد المستخدمين</p>
+                <p class="mb-0">عدد عملاء الشركة</p>
 
             </div>
         </div>
@@ -57,12 +57,11 @@
       </div>
     </div>
     <div class="col">
-        <a href="{{route('all.category')}}">
-
+        <a href="{{route('all.service')}}">
         <div class="card radius-10 bg-gradient-ohhappiness">
         <div class="card-body">
             <div class="d-flex align-items-center">
-                <h5 class="mb-0 text-white"> {{$category->count()}}</h5>
+                <h5 class="mb-0 text-white"> {{$service->count()}}</h5>
                 <div class="ms-auto">
                     <i class='bx bx-category fs-3 text-white'></i>
                 </div>
@@ -71,7 +70,7 @@
                 <div class="progress-bar bg-white" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="d-flex align-items-center text-white">
-                <p class="mb-0">عدد الفئات الرئيسية</p>
+                <p class="mb-0">عدد الخدمات</p>
             </div>
         </div>
     </a>
@@ -79,14 +78,14 @@
       </div>
     </div>
     <div class="col">
-        <a href="{{route('all.question')}}">
+        <a href="{{route('all.work')}}">
 
         <div class="card radius-10 bg-gradient-ibiza">
         <div class="card-body">
             <div class="d-flex align-items-center">
-                <h5 class="mb-0 text-white">{{$questions->count()}}</h5>
+                <h5 class="mb-0 text-white">{{$companywork->count()}}</h5>
                 <div class="ms-auto">
-                    <i class='bx bx-help-circle fs-3 text-white'></i>
+                    <i class='bx bx-category fs-3 text-white'></i>
 
                 </div>
             </div>
@@ -94,7 +93,7 @@
                 <div class="progress-bar bg-white" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="d-flex align-items-center text-white">
-                <p class="mb-0">عدد الأسئلة</p>
+                <p class="mb-0">عدد أعمال الشركة</p>
             </div>
         </div>
     </a>
@@ -102,21 +101,21 @@
     </div>
     </div>
     <div class="col">
-        <a href="{{route('all.games')}}">
+        <a href="{{route('all.news')}}">
 
         <div class="card radius-10 bg-gradient-moonlit bg-warning">
          <div class="card-body">
             <div class="d-flex align-items-center">
-                <h5 class="mb-0 text-white">{{$games->count()}}</h5>
+                <h5 class="mb-0 text-white">{{$news->count()}}</h5>
                 <div class="ms-auto">
-                    <i class='bx bx-joystick fs-3 text-white'></i>
+                    <i class='bx bx-category fs-3 text-white'></i>
                 </div>
             </div>
             <div class="progress my-2 bg-opacity-25 bg-white" style="height:4px;">
                 <div class="progress-bar bg-white" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="d-flex align-items-center text-white">
-                <p class="mb-0">عدد الألعاب</p>
+                <p class="mb-0">عدد الأخبار</p>
             </div>
         </div>
     </a>

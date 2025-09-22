@@ -27,7 +27,6 @@
                                         <select  name="role" class="form-select" aria-label="Default select example">
                                             <option selected="" value="non">الرجاء إختيار نوع المستخدم</option>
 
-                                        <option value="owner">مالك</option>
                                          <option value="admin">مدير</option>
                                         <option  value="user">مستخدم</option>
 

@@ -9,8 +9,6 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--favicon-->
-	<link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png" />
 	<!--plugins-->
 	<link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
 	<link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -24,18 +22,42 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="{{ asset('backend/assets/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('backend/assets/css/icons.css') }}" rel="stylesheet">
-	<title>لوحة تحكم - تطبيق فانتسي الهجن</title>
+	<title>لوحة تحكم - موقع وتطبيق المقام ميديا</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
     <style>
-
-		body
-		{
+		body {
 			font-family: "Cairo", sans-serif;
 		}
 
+        /* --- Image Animation --- */
+        @keyframes floatIn {
+          0% {
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+          }
+          60% {
+            opacity: 1;
+            transform: translateY(-10px) scale(1.05);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
 
+        @keyframes floating {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-60px);
+          }
+        }
 
+        .auth-cover-left img {
+          animation: floatIn 1.5s ease-out forwards, floating 3s ease-in-out infinite;
+        }
 	</style>
 </head>
 
@@ -48,8 +70,8 @@
 
 					<div class="col-12 col-xl-7 col-xxl-8 auth-cover-left bg-gradient-cosmic align-items-center justify-content-center d-none d-xl-flex">
 						<div class="card shadow-none bg-transparent shadow-none rounded-0 mb-0">
-							<div class="card-body">
-                                 <img src="{{ asset('backend/assets/images/login-images/logo_fantacy.png') }}" class="img-fluid" width="400" alt=""/>
+							<div class="card-body text-center">
+                                 <img src="{{ asset('backend/assets/images/login-images/alm_white.png') }}" class="img-fluid" width="400" alt=""/>
 							</div>
 						</div>
 					</div>
@@ -59,42 +81,33 @@
 							<div class="card-body p-sm-5">
 								<div class="">
 									<div class="mb-3 text-center">
-										<img src="{{ asset('backend/assets/images/logo-icon.png') }}" width="100" alt="">
+										<img src="{{ asset('backend/assets/images/logo-icon-maqam.png') }}" width="270" alt="">
 									</div>
 									<div class="text-center mb-4">
-										<h5 class="">لوحة تحكم - تطبيق فانتسي الهجن</h5>
+										<h5 class="">لوحة تحكم - موقع وتطبيق المقام ميديا</h5>
 										<p class="mb-0">الرجاء تسجيل الدخول</p>
 									</div>
 									<div class="form-body">
 
-                                            <form class="row g-3" method="POST" action="{{ route('login') }}">
-                                                @csrf
-
-
+                                        <form class="row g-3" method="POST" action="{{ route('login') }}">
+                                            @csrf
 
 											<div class="col-12">
 												<label for="inputEmailAddress" class="form-label">البريد الإلكتروني</label>
-												<input type="email" id="email" name="email" :value="old('email')" required class="form-control" id="inputEmailAddress" placeholder="الرجاء ادخال البريد الإلكتروني">
+												<input type="email" id="email" name="email" :value="old('email')" required class="form-control" placeholder="الرجاء ادخال البريد الإلكتروني">
 											</div>
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">كلمة المرور</label>
 												<div class="input-group" id="show_hide_password">
-													<input required id="password" name="password" type="password" class="form-control border-end-0" id="inputChoosePassword"  placeholder="الرجاء ادخال كلمة المرور">
+													<input required id="password" name="password" type="password" class="form-control border-end-0" placeholder="الرجاء ادخال كلمة المرور">
 													<a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
 												</div>
 											</div>
-											<div class="col-md-6">
-
-											</div>
-											<div class="col-md-6 text-end">
-											</div>
 											<div class="col-12">
 												<div class="d-grid">
-													<button type="submit" class="btn btn-danger">تسجيل الدخول</button>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="text-center">
+													<button type="submit" class="btn" style="background-color: #DF633C; border: none; color: white;">
+														تسجيل الدخول
+													</button>
 												</div>
 											</div>
 										</form>
@@ -102,7 +115,6 @@
 									<div class="login-separater text-center mb-5">
 										<hr>
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -114,6 +126,7 @@
 		</div>
 	</div>
 	<!--end wrapper-->
+
 	<!-- Bootstrap JS -->
 	<script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
 	<!--plugins-->
@@ -121,6 +134,7 @@
 	<script src="{{ asset('backend/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
 	<script src="{{ asset('backend/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
 	<script src="{{ asset('backend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+
 	<!--Password show & hide js -->
 	<script>
 		$(document).ready(function () {
@@ -138,32 +152,30 @@
 			});
 		});
 	</script>
+
 	<!--app JS-->
 	<script src="{{ asset('backend/assets/js/app.js') }}"></script>
-
-
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-<script>
- @if(Session::has('message'))
- var type = "{{ Session::get('alert-type','info') }}"
- switch(type){
-    case 'info':
-    toastr.info(" {{ Session::get('message') }} ");
-    break;
-    case 'success':
-    toastr.success(" {{ Session::get('message') }} ");
-    break;
-    case 'warning':
-    toastr.warning(" {{ Session::get('message') }} ");
-    break;
-    case 'error':
-    toastr.error(" {{ Session::get('message') }} ");
-    break;
- }
- @endif
-</script>
+	<script>
+	 @if(Session::has('message'))
+	 var type = "{{ Session::get('alert-type','info') }}"
+	 switch(type){
+	    case 'info':
+	    toastr.info(" {{ Session::get('message') }} ");
+	    break;
+	    case 'success':
+	    toastr.success(" {{ Session::get('message') }} ");
+	    break;
+	    case 'warning':
+	    toastr.warning(" {{ Session::get('message') }} ");
+	    break;
+	    case 'error':
+	    toastr.error(" {{ Session::get('message') }} ");
+	    break;
+	 }
+	 @endif
+	</script>
 </body>
 
 </html>

@@ -14,6 +14,13 @@ return [
     |
     */
 
+
+    'facebook' => [
+    'pixel_id'      => env('2286018608511604'),
+    'access_token'  => env('EAAVeXhBZBZC0gBPXZBG7HaclkJOQWPBZBLDSYMtzqqOLBhU5nZC2WGZBL5v3hhQi1vzXYMOURA1ZBwvq17y9XFVMJMgtKWG8qINrx5mCI2fW0VDA1OR12ThBEZCAKVaDrZCmZBsCi1wxWnTPEy71ZAO85lAzHLOQzqvzp5wgmvhcZAI21n0GlE9IgIQc8BUUkPA88QZDZD'),
+],
+
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
