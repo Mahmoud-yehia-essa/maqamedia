@@ -32,6 +32,7 @@ use App\Http\Controllers\AppVersionController;
 use App\Http\Controllers\QuestionAIController;
 use App\Http\Controllers\SociaMediaController;
 use App\Http\Controllers\CompanyWorkController;
+use App\Http\Controllers\ContactInfoController;
 use App\Http\Controllers\SocialmediaController;
 use App\Http\Controllers\UserServiceController;
 use App\Http\Controllers\NotificationController;
@@ -44,6 +45,7 @@ use App\Http\Controllers\Frontend\FrontNewsController;
 use App\Http\Controllers\UserServicePaymentController;
 use App\Http\Controllers\Frontend\FrontClientController;
 use App\Http\Controllers\Frontend\FrontPlanneController;
+use App\Http\Controllers\Frontend\FrontAiAgentController;
 use App\Http\Controllers\Frontend\FrontContactController;
 use App\Http\Controllers\Frontend\FrontGalleryController;
 use App\Http\Controllers\Frontend\FrontServiceController;
@@ -109,6 +111,21 @@ Route::controller(FrontServiceController::class)->group(function () {
 });
 
 
+Route::controller(FrontAiAgentController::class)->group(function () {
+
+
+    Route::get('/ai-agent', 'showAiAgent')->name('show.ai.agent');
+
+
+// Route::get('/ai-agent', [FrontAiAgentController::class,'showAiAgent']);
+Route::post('/ai-agent/ask', 'askAiAgent');
+
+
+});
+
+
+
+
 
 Route::controller(FrontTeamWorkController::class)->group(function () {
 
@@ -142,7 +159,8 @@ Route::controller(FrontCompanyWorkController::class)->group(function () {
 
 
     Route::get('/portfolio', 'showPortfolio')->name('show.portfolio');
-        Route::get('/portfolio/details/{id}', 'showServicesPortfolio')->name('show.portfolio.details');
+        // Route::get('/portfolio/details/{id}', 'showServicesPortfolio')->name('show.portfolio.details');
+        Route::get('/works/details/{id}', 'showServicesPortfolio')->name('show.portfolio.details');
 
 
 });
@@ -177,7 +195,10 @@ Route::controller(FrontPlanneController::class)->group(function () {
 
 
 
-Route::get('/planne/{id}', 'showPlanne')->name('show.front.planne');
+
+Route::get('/plans/details/{id}', 'showPlanne')->name('show.front.planne');
+
+
 
 Route::post('/add/user/planne' , 'storePlanne')->name('add.planee.user.store');
 
@@ -709,6 +730,13 @@ Route::controller(AboutAdminController::class)->middleware(['checkUserRole','aut
 
 });
 
+
+Route::controller(ContactInfoController::class)
+    ->middleware(['checkUserRole','auth'])
+    ->group(function () {
+        Route::get('/contact/info', 'index')->name('contact.info');
+        Route::post('/contact/info/update', 'update')->name('contact.info.update');
+    });
 
 
 Route::controller(SiteColorController::class)

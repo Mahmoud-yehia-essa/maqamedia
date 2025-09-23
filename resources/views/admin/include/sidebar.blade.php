@@ -289,6 +289,19 @@
 
 
 
+<li>
+    <a href="javascript:;" class="has-arrow">
+        <div class="parent-icon"><i class="bx bx-phone"></i></div>
+        <div class="menu-title">اتصل بنا</div>
+    </a>
+    <ul>
+        <li>
+            <a href="{{ route('contact.info') }}">
+                <i class='bx bx-radio-circle'></i> إدارة معلومات الاتصال
+            </a>
+        </li>
+    </ul>
+</li>
 
 
 
