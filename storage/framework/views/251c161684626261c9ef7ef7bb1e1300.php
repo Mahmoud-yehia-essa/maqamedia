@@ -3,8 +3,8 @@
 <!--===== HEADER AREA =====-->
 
 
-<div class="about-header-area" style="background-image: url(<?php echo e(asset('frontend/assets/img/bg/inner-header.png')); ?>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-    <img src="<?php echo e(asset('frontend/assets/img/elements/elements1.png')); ?>" alt="" class="elements1 aniamtion-key-1">
+<div class="about-header-area" style="background-color: #ED7032" >
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-6 m-auto text-center">
