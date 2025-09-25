@@ -39,12 +39,55 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <style>
-.chatbot-container { max-width: 800px; margin: 30px auto; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 75vh; }
-.chat-header { background: var(--primary-color, #ED7032); color: #fff; padding: 15px; text-align: center; font-family: 'Cairo', sans-serif; font-size: 18px; font-weight: bold; }
-.chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; }
-.message { max-width: 80%; padding: 10px 15px; border-radius: 12px; margin: 8px 0; font-family: 'Cairo', sans-serif; font-size: 15px; word-wrap: break-word; }
+/* ======= تصميم الشات ======= */
+.chatbot-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 70vh; /* ارتفاع مناسب لكل الشاشات */
+}
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto; /* التمرير داخل الرسائل فقط */
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.chat-header {
+    background: var(--primary-color, #ED7032);
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin: 8px 0;
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    word-wrap: break-word;
+}
+
 .bot-message { background: #ececec; color: #333; align-self: flex-start; }
 .user-message { background: var(--primary-color, #ED7032); color: #fff; align-self: flex-end; }
+
 .chat-footer { display: flex; border-top: 1px solid #ddd; background: #fff; }
 .chat-footer form { display: flex; width: 100%; align-items: center; }
 .chat-footer input { flex: 1; border: none; padding: 12px 15px; font-family: 'Cairo', sans-serif; font-size: 15px; }
@@ -63,7 +106,14 @@
 
 .chat-footer button[type="submit"] { background: var(--primary-color, #ED7032); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
 .chat-footer button[type="submit"]:hover { background: #d95d21; }
-@media (max-width: 768px) { .chatbot-container { max-width: 100%; height: 80vh; border-radius: 0; } }
+
+@media (max-width: 768px) {
+    .chatbot-container {
+        max-width: 100%;
+        height: 65vh; /* أصغر قليلًا على الموبايل */
+        border-radius: 0;
+    }
+}
 </style>
 
 <script>
@@ -102,17 +152,14 @@ function sendMessage(event) {
     })
     .then(res => res.json())
     .then(data => {
-        // إزالة مؤشر الكتابة
         typingMsg.remove();
 
         let botMsg = document.createElement("div");
         botMsg.classList.add("message", "bot-message");
 
-        // دعم Markdown
         let answerText = data.answer || "لا يوجد رد من المساعد الذكي";
         botMsg.innerHTML = marked.parse(answerText);
 
-        // فتح جميع الروابط في نافذة جديدة
         botMsg.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'));
 
         chatBody.appendChild(botMsg);

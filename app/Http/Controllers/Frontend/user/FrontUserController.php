@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\UserServiceNotification;
 
 
 class FrontUserController extends Controller
@@ -260,6 +262,13 @@ $userId = $user->id;  // user's ID
 
 
     ]);
+
+                $userAdmin = User::where('role','admin')->get();
+
+
+    Notification::send($userAdmin,new UserServiceNotification($user->fname));
+
+
 
 
 

@@ -549,6 +549,75 @@
                             </a>
                         </div>
                     </li>
+
+                                             <?php
+                                            $ncount = Auth::user()->unreadNotifications()->count()
+                                            ?>
+                    <li class="nav-item dropdown dropdown-large">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?php if($ncount != 0): ?>
+                                                                            <span class="alert-count"><?php echo e($ncount); ?></span>
+
+                                    <?php else: ?>
+
+                                    <?php endif; ?>
+
+									<i class="bx bx-bell"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="javascript:;">
+										<div class="msg-header">
+											<p class="msg-header-title">الإشعارات</p>
+
+                                        
+
+										</div>
+									</a>
+									<div class="header-notifications-list ps">
+
+
+
+                                        <?php
+                                            $user = Auth::user();
+
+                                        ?>
+
+                                        <?php $__empty_1 = true; $__currentLoopData = $user->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                <a class="dropdown-item" href="<?php echo e(route('notification.read',$notification)); ?>">
+											<div class="d-flex align-items-center">
+												
+												<div class="flex-grow-1">
+													<h6 class="msg-name"> <?php echo e($notification->data['type']); ?><span class="msg-time float-end">
+                                                        <?php echo e($notification->created_at->diffForHumans()); ?>
+
+												</span></h6>
+													<p class="msg-info"><?php echo e($notification->data['message']); ?>
+
+                                                        من
+                                                        <?php echo e($notification->data['senderName']); ?>
+
+
+                                                    </p>
+												</div>
+											</div>
+										</a>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+
+                                        <?php endif; ?>
+
+
+
+
+
+
+
+									<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; left: -6px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+									
+								</div>
+							</li>
+
+
+
                 </ul>
             </div>
             <div class="user-box dropdown px-3">

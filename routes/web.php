@@ -49,6 +49,7 @@ use App\Http\Controllers\Frontend\FrontAiAgentController;
 use App\Http\Controllers\Frontend\FrontContactController;
 use App\Http\Controllers\Frontend\FrontGalleryController;
 use App\Http\Controllers\Frontend\FrontServiceController;
+use App\Http\Controllers\NotificationDashboardController;
 use App\Http\Controllers\Frontend\FrontTeamWorkController;
 use App\Http\Controllers\Frontend\user\FrontUserController;
 use App\Http\Controllers\Frontend\FrontCompanyWorkController;
@@ -342,6 +343,17 @@ Route::controller(NotificationController::class)->middleware(['checkUserRole','a
 
 
 });
+
+
+
+Route::controller(NotificationDashboardController::class)->middleware(['checkUserRole','auth'])->group(function () {
+
+
+
+    Route::get('/notification/read/{id}' , 'setNotificationRead')->name('notification.read');
+
+});
+
 
 Route::controller(AppVersionController::class)->middleware(['checkUserRole','auth'])->group(function () {
 

@@ -550,6 +550,77 @@
                             </a>
                         </div>
                     </li>
+
+                                             @php
+                                            $ncount = Auth::user()->unreadNotifications()->count()
+                                            @endphp
+                    <li class="nav-item dropdown dropdown-large">
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @if ($ncount != 0)
+                                                                            <span class="alert-count">{{$ncount}}</span>
+
+                                    @else
+
+                                    @endif
+
+									<i class="bx bx-bell"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="javascript:;">
+										<div class="msg-header">
+											<p class="msg-header-title">الإشعارات</p>
+
+                                        {{-- <p class="msg-header-badge">{{ $ncount !== 0 ? $ncount : "" }}</p> --}}
+
+										</div>
+									</a>
+									<div class="header-notifications-list ps">
+
+
+
+                                        @php
+                                            $user = Auth::user();
+
+                                        @endphp
+
+                                        @forelse ($user->unreadNotifications as $notification )
+                                <a class="dropdown-item" href="{{route('notification.read',$notification)}}">
+											<div class="d-flex align-items-center">
+												{{-- <div class="notify bg-light-danger text-danger">dc
+												</div> --}}
+												<div class="flex-grow-1">
+													<h6 class="msg-name"> {{$notification->data['type']}}<span class="msg-time float-end">
+                                                        {{$notification->created_at->diffForHumans()}}
+												</span></h6>
+													<p class="msg-info">{{$notification->data['message']}}
+                                                        من
+                                                        {{$notification->data['senderName']}}
+
+                                                    </p>
+												</div>
+											</div>
+										</a>
+                                        @empty
+
+                                        @endforelse
+
+
+
+
+
+
+
+									<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; left: -6px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+									{{-- <a href="javascript:;">
+										<div class="text-center msg-footer">
+											<button class="btn btn-primary w-100">View All Notifications</button>
+										</div>
+									</a> --}}
+								</div>
+							</li>
+
+
+
                 </ul>
             </div>
             <div class="user-box dropdown px-3">

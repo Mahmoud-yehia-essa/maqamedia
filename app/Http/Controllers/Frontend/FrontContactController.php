@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Home;
+use App\Models\User;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Notifications\ContactUsNotification;
+use Illuminate\Support\Facades\Notification;
 
 class FrontContactController extends Controller
 {
@@ -28,6 +31,7 @@ class FrontContactController extends Controller
       public function storeContactus(Request $request){
 
 
+        $user = User::where('role','admin')->get();
 
 
         $request->validate([
@@ -103,6 +107,8 @@ class FrontContactController extends Controller
 
         ]);
 
+
+    Notification::send($user,new ContactUsNotification($request->name));
 
                     // return redirect()->route('all.users')->with($notification);
 
