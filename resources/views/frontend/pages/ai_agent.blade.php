@@ -49,16 +49,24 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    height: 70vh; /* ارتفاع مناسب لكل الشاشات */
+    height: 500px; /* ثابت متوسط مناسب */
 }
 
 .chat-body {
-    flex: 1;
+    flex: 1;                 /* ياخذ المساحة المتبقية */
     padding: 15px;
-    overflow-y: auto; /* التمرير داخل الرسائل فقط */
+    overflow-y: auto;        /* تمرير الرسائل فقط */
     background: #f9f9f9;
     display: flex;
     flex-direction: column;
+}
+
+.chat-footer {
+    border-top: 1px solid #ddd;
+    background: #fff;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
 }
 
 
@@ -110,7 +118,8 @@
 @media (max-width: 768px) {
     .chatbot-container {
         max-width: 100%;
-        height: 65vh; /* أصغر قليلًا على الموبايل */
+        max-height: 500px;  /* أصغر في الموبايل */
+        min-height: 500px;
         border-radius: 0;
     }
 }
