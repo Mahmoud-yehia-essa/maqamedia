@@ -49,7 +49,7 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    height: 500px; /* ثابت متوسط مناسب */
+    height: 550px; /* ثابت متوسط مناسب */
 }
 
 .chat-body {
